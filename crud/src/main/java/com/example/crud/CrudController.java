@@ -1,14 +1,19 @@
 package com.example.crud;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
+/**
+ * 
+ * @author Deepshikha
+ *
+ */
+@Controller
 public class CrudController {
 	
 	@RequestMapping("/")
 	public String index() {
-		return "hello to springboot";
+		return "index";
 	}
 
 }
