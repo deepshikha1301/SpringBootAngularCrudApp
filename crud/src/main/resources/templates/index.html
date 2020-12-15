@@ -3,17 +3,28 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>ToDoList</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
 </head>
-<body>
-<div>
- <button type="button" onclick="addRow()">Add a row</button>
- <table id="itemTable" style="visibility:hidden">
- <tr>
-<th>Item</th>
-<th>Action</th> 
- </tr>
- </table>
-</div>
-<script src="js/userControl.js"></script>
+<body ng-app="crudApp">
+	<div ng-controller="crudControl">
+	    <input type="text" ng-model="inputItemField"></input>
+		<button type="button" ng-click="addItem()">Add</button>
+		<table ng-model="itemTable" ng-style="addRowStyle">
+			<thead>
+				<tr>
+					<th>Item</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="rowData in rows">
+					<td>{{rowData}}</td>
+					<td><button type="button" ng-click="markItemDone($index)">Done</button></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script src="js/app.js"></script>
 </body>
 </html>
