@@ -2,29 +2,31 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<link rel="stylesheet" href="css/appStyle.css">
 <title>ToDoList</title>
 <script
 	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="js/app.js"></script>
 </head>
-<body ng-app="crudApp">
-	<div ng-controller="crudControl">
-	    <input type="text" ng-model="inputItemField"></input>
-		<button type="button" ng-click="addItem()">Add</button>
-		<table ng-model="itemTable" ng-style="addRowStyle">
-			<thead>
-				<tr>
-					<th>Item</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="rowData in rows">
-					<td>{{rowData}}</td>
-					<td><button type="button" ng-click="markItemDone($index)">Done</button></td>
-				</tr>
-			</tbody>
-		</table>
+<body>
+	<div class="titleDiv">
+		<p class="title">my todo list</p>
 	</div>
-	<script src="js/app.js"></script>
+	<div ng-app="crudApp" ng-controller="crudControl">
+		<div class="addItemDiv">
+			<input class="inputField" type="text" ng-model="inputItemField"
+				placeholder="add an item"></input>
+			<button class="addButton" type="button" ng-click="addItem()">Add</button>
+		</div>
+		<div class="listDiv">
+			<ul>
+				<li ng-repeat="rowData in rows">{{rowData}}
+					<button class="doneButton" type="button"
+						ng-click="markItemDone($index)">Done</button>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- 	 -->
 </body>
 </html>
